@@ -1,0 +1,17 @@
+{% extends "accounts/base.html"%}
+{% block title %} update {% endblock %}
+
+{% block content %}
+    {% if u_form and p_form %}
+        <div class="edit-title">
+            <h3>Update Profile</h3>
+            <a href="{% url 'home' %}">Back to home</a>
+        </div>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ u_form.as_p }}
+            {{ p_form.as_p }}
+            <button type="submit">Update</button>
+        </form>
+    {% endif %}
+{% endblock %}

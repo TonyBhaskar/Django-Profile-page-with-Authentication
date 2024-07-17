@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %} Base {% endblock %}</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'accounts/css/home.css' %}">
+</head>
+<body>
+    {% if profile %}
+    <div class="navbar">
+        PYTHON DJANGO PROFILE PAGE
+        <a href="{% url 'logout' %}">Log out</a>
+    </div>
+    <div class="content">
+        <div class="profile-card">
+            <div class="profile-name">
+                <img style="border-radius: 50%; width: 100px; height: 100px;" src="{{ profile.image.url }}" alt="Profile Pic">
+                <h2>{{ profile.user.first_name }}</h2>
+                <a href="{% url 'logout' %}">Log out</a>
+            </div>
+        </div>
+        <div class="profile-details">
+            {% block content %}
+                <h1>This is base block content</h1>
+            {% endblock %}
+        </div>
+    </div>
+    {% endif %}
+</body>
+</html>

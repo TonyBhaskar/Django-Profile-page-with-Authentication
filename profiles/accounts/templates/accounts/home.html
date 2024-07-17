@@ -1,0 +1,13 @@
+{% extends "accounts/base.html"%}
+{% block title %} Home {% endblock %}
+
+{% block content %}
+    <div class="edit-title">
+        <h3>Profile Details</h3>
+        <a href="{% url 'update' %}">EDIT</a>
+    </div>
+    <p><strong>First Name:</strong> {{ profile.user.first_name }}</p>
+    <p><strong>Last Name:</strong> {{ profile.user.last_name }}</p>
+    <p><strong>Email ID:</strong> {{ profile.user.email }}</p>
+    <p><strong>Registration Date:</strong> {{ profile.user.date_joined }}</p>
+{% endblock %}
